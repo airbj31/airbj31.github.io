@@ -1,0 +1,9 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>BJK</title>
+        <link>https://airbj31.github.io/</link>
+        <description>Genomic Data Scientist</description>
+        <generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Wed, 28 Dec 2022 00:00:00 &#43;0000</lastBuildDate>
+            <atom:link href="https://airbj31.github.io/index.xml" rel="self" type="application/rss+xml" />
+        </channel>
+</rss>

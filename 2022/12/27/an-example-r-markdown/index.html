@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>An Example R Markdown - BJK</title><meta name="Description" content="Genomic Data Scientist"><meta property="og:title" content="An Example R Markdown" />
+<meta property="og:description" content="## ## Attaching package: &#39;dplyr&#39; ## The following objects are masked from &#39;package:stats&#39;: ## ## filter, lag ## The following objects are masked from &#39;package:base&#39;: ## ## intersect, setdiff, setequal, union Introduction This is an R Markdown document. By studying the document source code file, compiling it, and observing the result side-by-side with the source, you’ll learn a lot about the R Markdown and LaTeX mathematical typesetting language, and you’ll be able to produce nice-looking documents with R input and output neatly formatted." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://airbj31.github.io/2022/12/27/an-example-r-markdown/" /><meta property="og:image" content="https://airbj31.github.io/104"/><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-12-27T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-12-27T00:00:00+00:00" /><meta property="og:site_name" content="BJK\&#39;s Log" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://airbj31.github.io/104"/>
+
+<meta name="twitter:title" content="An Example R Markdown"/>
+<meta name="twitter:description" content="## ## Attaching package: &#39;dplyr&#39; ## The following objects are masked from &#39;package:stats&#39;: ## ## filter, lag ## The following objects are masked from &#39;package:base&#39;: ## ## intersect, setdiff, setequal, union Introduction This is an R Markdown document. By studying the document source code file, compiling it, and observing the result side-by-side with the source, you’ll learn a lot about the R Markdown and LaTeX mathematical typesetting language, and you’ll be able to produce nice-looking documents with R input and output neatly formatted."/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://airbj31.github.io/2022/12/27/an-example-r-markdown/" /><link rel="prev" href="https://airbj31.github.io/2022/12/27/linux/" /><link rel="next" href="https://airbj31.github.io/2022/12/28/honey-bee-crisis/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "An Example R Markdown",
+        "inLanguage": "ko-KR",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/airbj31.github.io\/2022\/12\/27\/an-example-r-markdown\/"
+        },"genre": "post","wordcount":  1525 ,
+        "url": "https:\/\/airbj31.github.io\/2022\/12\/27\/an-example-r-markdown\/","datePublished": "2022-12-27T00:00:00+00:00","dateModified": "2022-12-27T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Kim, Byung-Ju"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="BJK"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/logo.gif"
+        data-srcset="/images/logo.gif, /images/logo.gif 1.5x, /images/logo.gif 2x"
+        data-sizes="auto"
+        alt="/images/logo.gif"
+        title="/images/logo.gif" />Kim, BJ PhD</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/"> Home </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/research/"> Research </a><a class="menu-item" href="/career/"> Career </a><a class="menu-item" href="/works/"> Works </a><a class="menu-item" href="/glab/"> G-Lab </a><a class="menu-item" href="/post/"> Archive </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="BJK"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/logo.gif"
+        data-srcset="/images/logo.gif, /images/logo.gif 1.5x, /images/logo.gif 2x"
+        data-sizes="auto"
+        alt="/images/logo.gif"
+        title="/images/logo.gif" />Kim, BJ PhD</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/" title="">Home</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/research/" title="">Research</a><a class="menu-item" href="/career/" title="">Career</a><a class="menu-item" href="/works/" title="">Works</a><a class="menu-item" href="/glab/" title="">G-Lab</a><a class="menu-item" href="/post/" title="">Archive</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster">An Example R Markdown</h1><h2 class="single-subtitle">Introduction to R Markdown</h2><div class="content" id="content">
+
+
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>This is an R Markdown document. By studying the document source code file, compiling it, and observing the result side-by-side with the source, you’ll learn a lot about the R Markdown and LaTeX mathematical typesetting language, and you’ll be able to produce nice-looking documents with R input and output neatly formatted.</p>
+<p>This file was originally written by <em>James H. Steiger</em> and shamelessly modified by <em>Byungju Kim</em> for self-study.</p>
+<p>Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
+<p>When you click the <strong>Knit</strong> button in RStudio, a document will be generated that includes both content as well as the output of any embedded R codes.</p>
+<p>This file is <a href="/">available</a> on the</p>
+</div>
+<div id="r-code-chunks" class="section level1">
+<h1>R Code Chunks</h1>
+<p>R code chunks, codes between <em>' ' ' {r}</em> and <em>' ' '</em>, can be used as a means render R output into documents or to simply display code for illustration. Here is a simple R code chunk that will result in both the code and it’s output being included:</p>
+<pre class="r"><code>summary(cars)</code></pre>
+<pre><code>##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00</code></pre>
+<p>You can also embed plots, for example:</p>
+<p><img src="https://airbj31.github.io/2022/12/27/an-example-r-markdown/index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of</p>
+<p>the R code that generated the plot.</p>
+</div>
+<div id="key-formatting-constructs" class="section level1">
+<h1>Key Formatting Constructs</h1>
+<p>The key formatting constructs are discussed at <a href="http://rmarkdown.rstudio.com/authoring_basics.html" class="uri">http://rmarkdown.rstudio.com/authoring_basics.html</a>. You can see above how I constructed main section headings. Now I’m going to create a series of sections using secondary headings.</p>
+<div id="headers" class="section level2">
+<h2>Headers</h2>
+<pre><code># Header 1
+## Header 2
+### Header 3
+#### Header 4</code></pre>
+<ul>
+<li><h1 id="header-1">Header 1</h1></li>
+<li><h2 id="header-2">Header 2</h2></li>
+<li><h3 id="header-3">Header 3</h3></li>
+<li><h4 id="header-4">Header 4</h4></li>
+</ul>
+</div>
+<div id="emphasis" class="section level2">
+<h2>Emphasis</h2>
+<pre><code>This is *italic*. This is **bold**.
+This is _italic_. This is __bold__.</code></pre>
+<p>This is <em>italic</em>. This is <strong>bold</strong>.</p>
+<p>This is <em>italic</em>. This is <strong>bold</strong>.</p>
+</div>
+</div>
+<div id="text" class="section level1">
+<h1>Text</h1>
+<div id="superscripts" class="section level2">
+<h2>Superscripts</h2>
+<pre><code>This is x^2^.</code></pre>
+<p>This is x<sup>2</sup>.</p>
+</div>
+<div id="subscripts" class="section level2">
+<h2>Subscripts</h2>
+<pre><code>  This is H~2~O.</code></pre>
+<p>This is H<sub>2</sub>O.</p>
+</div>
+<div id="comment" class="section level2">
+<h2>comment</h2>
+<pre><code>  [ hi there ]:this is the comment</code></pre>
+</div>
+</div>
+<div id="table" class="section level1">
+<h1>Table</h1>
+<table>
+<thead>
+<tr class="header">
+<th>Column Header 1</th>
+<th>Column Header 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Cell 1</td>
+<td>Cell 2</td>
+</tr>
+<tr class="even">
+<td>Cell 3</td>
+<td>Cell 4</td>
+</tr>
+</tbody>
+</table>
+<div id="lists" class="section level2">
+<h2>Lists</h2>
+<div id="unordered" class="section level3">
+<h3>Unordered</h3>
+<ul>
+<li>Item 1</li>
+<li>Item 2
+<ul>
+<li>Item 2a</li>
+<li>Item 2b</li>
+</ul></li>
+</ul>
+</div>
+<div id="ordered" class="section level3">
+<h3>Ordered</h3>
+<ol style="list-style-type: decimal">
+<li>Item 1</li>
+<li>Item 2</li>
+<li>Item 3
+<ul>
+<li>Item 3a</li>
+<li>Item 3b</li>
+</ul></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="code-chunks-block" class="section level1">
+<h1>Code Chunks / Block</h1>
+<div id="block-quotes" class="section level2">
+<h2>Block Quotes</h2>
+<p>A friend once said:</p>
+<blockquote>
+<p>It’s always better to give
+than to receive.</p>
+</blockquote>
+</div>
+<div id="displaying-blocks-of-code-without-message" class="section level2">
+<h2>Displaying Blocks of code without message</h2>
+<p>some packages displays some message when they are loading into workspace.
+we can avoid thiese situation by using ‘message=FALSE’</p>
+<pre class="r"><code>library(reshape2)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;reshape2&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:tidyr&#39;:
+## 
+##     smiths</code></pre>
+<pre class="r"><code>library(grid)</code></pre>
+</div>
+<div id="displaying-blocks-of-code-without-evaluating" class="section level2">
+<h2>Displaying Blocks of Code Without Evaluating</h2>
+<p>In some situations, you want to display R code but not evaluate it. Here is an example of how you format.</p>
+<pre><code>This text is displayed verbatim / preformatted</code></pre>
+</div>
+<div id="displaying-r-code-inline-in-a-sentence" class="section level2">
+<h2>Displaying R Code Inline in a Sentence</h2>
+<p>Sometimes, you need to include an R name or command inline in a sentence. Here is how your format it.</p>
+<p>The <code>sqrt</code> function computes the square root of a number.</p>
+</div>
+<div id="evaluating-and-inserting-r-code-in-a-sentence" class="section level2">
+<h2>Evaluating and Inserting R Code in a Sentence</h2>
+<p>Sometimes, you want a result without showing the user that you used R to get it.
+Here is an example.</p>
+<p>The mean of the numbers 2,3,4 is 3.</p>
+<p>There are lots of ways you can exploit this capability. You can do more advanced calculations in a hidden code block, assign the results to variables, and then simply use the variable names to insert the results in a sentence.</p>
+<p>In the following example, I compute the sum of the integers from 2 to 19 in a hidden code block. Then I display the result inline.</p>
+<p>The sum of the integers from 2 to 19 is 189.</p>
+</div>
+</div>
+<div id="typesetting-equations" class="section level1">
+<h1>Typesetting Equations</h1>
+<div id="inline-vs.-display-material" class="section level2">
+<h2>Inline vs. Display Material</h2>
+<p>Equations can be formatted <em>inline</em> or as <em>displayed formulas</em>. In the latter case, they are centered and set off from the main text. In the former case, the mathematical material occurs smoothly in the line of text.</p>
+<p>In order to fit neatly in a line, summation expressions (and similar constructs) are formatted slightly differently in their inline and display versions.</p>
+<p>Inline mathematical material is set off by the use of single dollar-sign characters. Consequently, if you wish to use a dollar sign (for example, to indicate currency), you need to preface it with a back-slash. The following examples, followed by their typeset versions, should make this clear</p>
+<pre><code>This summation expression $\sum_{i=1}^n X_i$ appears inline.</code></pre>
+<p>This summation expression <span class="math inline">\(\sum_{i=1}^n X_i\)</span> appears inline.</p>
+<pre><code>This summation expression is in display form.
+$$\sum_{i=1}^n X_i$$</code></pre>
+<p>This summation expression is in display form.</p>
+<p><span class="math display">\[\sum_{i=1}^n X_i\]</span></p>
+</div>
+<div id="some-latex-basics" class="section level2">
+<h2>Some LaTeX Basics</h2>
+<p>In this section, we show you some rudiments of the LaTeX typesetting language.</p>
+<div id="subscripts-and-superscripts" class="section level3">
+<h3>Subscripts and Superscripts</h3>
+<p>To indicate a subscript, use the underscore <code>_</code> character. To indicate a superscript, use a single caret character <code>^</code>. Note: this can be confusing, because the R Markdown language delimits superscripts with two carets. In LaTeX equations, a single caret indicates the superscript.</p>
+<p>If the subscript or superscript has just one character, there is no need to delimit with braces. However, if there is more than one character, braces must be used.</p>
+<p>The following examples illustrate:</p>
+<pre><code>$$X_i$$
+$$X_{i}$$</code></pre>
+<p><span class="math display">\[X_i\]</span>
+<span class="math display">\[X_{i}\]</span></p>
+<p>Notice that in the above case, braces were not actually needed.</p>
+<p>In this next example, however, failure to use braces creates an error, as LaTeX sets only the first character as a subscript</p>
+<pre><code>$$X_{i,j}$$
+$$X_i,j$$</code></pre>
+<p><span class="math display">\[X_{i,j}\]</span>
+<span class="math display">\[X_i,j\]</span></p>
+<p>Here is an expression that uses both subscripts and superscripts</p>
+<pre><code>$$X^2_{i,j}$$</code></pre>
+<p><span class="math display">\[X^2_{i,j}\]</span></p>
+</div>
+<div id="square-roots" class="section level3">
+<h3>Square Roots</h3>
+<p>We indicate a square root using the <code>\sqrt</code> operator.</p>
+<pre><code>$$\sqrt{b^2 - 4ac}$$</code></pre>
+<p><span class="math display">\[\sqrt{b^2 - 4ac}\]</span></p>
+</div>
+<div id="fractions" class="section level3">
+<h3>Fractions</h3>
+<p>Displayed fractions are typeset using the <code>\frac</code> operator.</p>
+<pre><code>$$\frac{4z^3}{16}$$</code></pre>
+<p><span class="math display">\[\frac{4z^3}{16}\]</span></p>
+</div>
+<div id="summation-expressions" class="section level3">
+<h3>Summation Expressions</h3>
+<p>These are indicated with the <code>\sum' operator, followed by a subscript for the material appearing below the summation sign, and a superscript for any material appearing above the summation sign. Here is an example. ``` $$\sum_{i=1}^{n} X^3_i$$ ``` $$\sum_{i=1}^{n} X^3_i$$ ### Self-Sizing Parentheses In LaTeX, you can create parentheses, brackets, and braces which size themselves automatically to contain large expressions. You do this using the</code><code>and</code>` operators. Here is an example</p>
+<pre><code>$$\sum_{i=1}^{n}\left( \frac{X_i}{Y_i} \right)$$</code></pre>
+<p><span class="math display">\[\sum_{i=1}^{n}\left( \frac{X_i}{Y_i} \right)\]</span>
+### Greek Letters
+Many statistical expressions use Greek letters. Much of the Greek alphabet is implemented in LaTeX, as indicated in the LaTeX cheat sheet available at the course website. There are both upper and lower case versions available for some letters.</p>
+<pre><code>$$\alpha, \beta, \gamma, \Gamma$$</code></pre>
+<span class="math display">\[\alpha, \beta, \gamma, \Gamma\]</span>
+Here are more greek letters table for the latex.
+<table class="gmisc_table" style="border-collapse: collapse; margin-top: 1em; margin-bottom: 1em;">
+<thead>
+<tr>
+<th style="border-bottom: 1px solid grey; border-top: 2px solid grey;">
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">
+namevector
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">
+LatexLower
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">
+syntax
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">
+1
+</td>
+<td style="text-align: center;">
+alpha
+</td>
+<td style="text-align: center;">
+<span class="math inline">\(\alpha\)</span>
+</td>
+<td style="text-align: center;">
+\alpha
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+2
+</td>
+<td style="text-align: center;">
+beta
+</td>
+<td style="text-align: center;">
+<span class="math inline">\(\beta\)</span>
+</td>
+<td style="text-align: center;">
+\beta
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+3
+</td>
+<td style="text-align: center;">
+gamma
+</td>
+<td style="text-align: center;">
+<span class="math inline">\(\gamma\)</span>
+</td>
+<td style="text-align: center;">
+\gamma
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+4
+</td>
+<td style="text-align: center;">
+delta
+</td>
+<td style="text-align: center;">
+<span class="math inline">\(\delta\)</span>
+</td>
+<td style="text-align: center;">
+\delta
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+5
+</td>
+<td style="text-align: center;">
+epsilon
+</td>
+<td style="text-align: center;">
+<span class="math inline">\(\epsilon\)</span>
+</td>
+<td style="text-align: center;">
+\epsilon
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+6
+</td>
+<td style="text-align: center;">
+zeta
+</td>
+<td style="text-align: center;">
+<span class="math inline">\(\zeta\)</span>
+</td>
+<td style="text-align: center;">
+\zeta
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+7
+</td>
+<td style="text-align: center;">
+eta
+</td>
+<td style="text-align: center;">
+<span class="math inline">\(\eta\)</span>
+</td>
+<td style="text-align: center;">
+\eta
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+8
+</td>
+<td style="text-align: center;">
+theta
+</td>
+<td style="text-align: center;">
+<span class="math inline">\(\theta\)</span>
+</td>
+<td style="text-align: center;">
+\theta
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+9
+</td>
+<td style="text-align: center;">
+iota
+</td>
+<td style="text-align: center;">
+<span class="math inline">\(\iota\)</span>
+</td>
+<td style="text-align: center;">
+\iota
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+10
+</td>
+<td style="text-align: center;">
+kappa
+</td>
+<td style="text-align: center;">
+<span class="math inline">\(\kappa\)</span>
+</td>
+<td style="text-align: center;">
+\kappa
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+11
+</td>
+<td style="text-align: center;">
+lambda
+</td>
+<td style="text-align: center;">
+<span class="math inline">\(\lambda\)</span>
+</td>
+<td style="text-align: center;">
+\lambda
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+12
+</td>
+<td style="text-align: center;">
+mu
+</td>
+<td style="text-align: center;">
+<span class="math inline">\(\mu\)</span>
+</td>
+<td style="text-align: center;">
+\mu
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+13
+</td>
+<td style="text-align: center;">
+nu
+</td>
+<td style="text-align: center;">
+<span class="math inline">\(\nu\)</span>
+</td>
+<td style="text-align: center;">
+\nu
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+14
+</td>
+<td style="text-align: center;">
+xi
+</td>
+<td style="text-align: center;">
+<span class="math inline">\(\xi\)</span>
+</td>
+<td style="text-align: center;">
+\xi
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+15
+</td>
+<td style="text-align: center;">
+omicron
+</td>
+<td style="text-align: center;">
+<span class="math inline">\(\omicron\)</span>
+</td>
+<td style="text-align: center;">
+\omicron
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+16
+</td>
+<td style="text-align: center;">
+pi
+</td>
+<td style="text-align: center;">
+<span class="math inline">\(\pi\)</span>
+</td>
+<td style="text-align: center;">
+\pi
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+17
+</td>
+<td style="text-align: center;">
+rho
+</td>
+<td style="text-align: center;">
+<span class="math inline">\(\rho\)</span>
+</td>
+<td style="text-align: center;">
+\rho
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+18
+</td>
+<td style="text-align: center;">
+sigma
+</td>
+<td style="text-align: center;">
+<span class="math inline">\(\sigma\)</span>
+</td>
+<td style="text-align: center;">
+\sigma
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+19
+</td>
+<td style="text-align: center;">
+tau
+</td>
+<td style="text-align: center;">
+<span class="math inline">\(\tau\)</span>
+</td>
+<td style="text-align: center;">
+\tau
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+20
+</td>
+<td style="text-align: center;">
+upsilon
+</td>
+<td style="text-align: center;">
+<span class="math inline">\(\upsilon\)</span>
+</td>
+<td style="text-align: center;">
+\upsilon
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+21
+</td>
+<td style="text-align: center;">
+phi
+</td>
+<td style="text-align: center;">
+<span class="math inline">\(\phi\)</span>
+</td>
+<td style="text-align: center;">
+\phi
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+22
+</td>
+<td style="text-align: center;">
+chi
+</td>
+<td style="text-align: center;">
+<span class="math inline">\(\chi\)</span>
+</td>
+<td style="text-align: center;">
+\chi
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+23
+</td>
+<td style="text-align: center;">
+psi
+</td>
+<td style="text-align: center;">
+<span class="math inline">\(\psi\)</span>
+</td>
+<td style="text-align: center;">
+\psi
+</td>
+</tr>
+<tr>
+<td style="border-bottom: 2px solid grey; text-align: left;">
+24
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+omega
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+<span class="math inline">\(\omega\)</span>
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+\omega
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="special-symbols" class="section level3">
+<h3>Special Symbols</h3>
+<p>All common mathematical symbols are implemented, and you can find a listing on the LaTeX cheat sheet.</p>
+<p>Some examples. (Notice that, in the third example, I use the tilde character for a forced space. Generally LaTeX does spacing for you automatically, and unless you use the tilde character, R will ignore your attempts to add spaces.)</p>
+<pre><code>$$a \pm b$$
+$$x \ge 15$$
+$$a_i \ge 0~~~\forall i$$</code></pre>
+<p><span class="math display">\[a \pm b\]</span>
+<span class="math display">\[x \ge 15\]</span>
+<span class="math display">\[a_i \ge 0~~~\forall i\]</span></p>
+</div>
+<div id="special-functions" class="section level3">
+<h3>Special Functions</h3>
+<p>LaTeX typesets special functions in a different font from mathematical variables. These functions, such as <span class="math inline">\(\sin\)</span>, <span class="math inline">\(\cos\)</span>, etc. are indicated in LaTeX with a backslash. Here is an example that also illustrates how to typeset an integral.</p>
+<pre><code>$$\int_0^{2\pi} \sin x~dx$$</code></pre>
+<p><span class="math display">\[\int_0^{2\pi} \sin x~dx\]</span></p>
+</div>
+<div id="matrices" class="section level3">
+<h3>Matrices</h3>
+<p>Matrics are presented in the <code>array</code> environment. One begins with the statement
+<code>\begin{array}</code> and ends with the statement <code>\end{array}</code>. Following the opening statement, a format code is used to indicate the formatting of each column. In the example below, we use the code <code>{rrr}</code> to indicate that each column is right justified. Each row is then entered, with cells separated by the <code>&amp;</code> symbol, and each line (except the last) terminated by <code>\\</code>.</p>
+<pre><code>$$\begin{array}
+{rrr}
+1 &amp; 2 &amp; 3 \\
+4 &amp; 5 &amp; 6 \\
+7 &amp; 8 &amp; 9
+\end{array}
+$$</code></pre>
+<p><span class="math display">\[\begin{array}
+{rrr}
+1 &amp; 2 &amp; 3 \\
+4 &amp; 5 &amp; 6 \\
+7 &amp; 8 &amp; 9
+\end{array}
+\]</span></p>
+<p>In math textbooks, matrices are often surrounded by brackets, and are assigned to a boldface letter. Here is an example</p>
+<pre><code>$$\mathbf{X} = \left[\begin{array}
+{rrr}
+1 &amp; 2 &amp; 3 \\
+4 &amp; 5 &amp; 6 \\
+7 &amp; 8 &amp; 9
+\end{array}\right]
+$$</code></pre>
+<p><span class="math display">\[\mathbf{X} = \left[\begin{array}
+{rrr}
+1 &amp; 2 &amp; 3 \\
+4 &amp; 5 &amp; 6 \\
+7 &amp; 8 &amp; 9
+\end{array}\right]
+\]</span></p>
+</div>
+</div>
+</div>
+</div></div></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">created by Blogdown, hugo framework with loveIt theme,and github pages</div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span>&nbsp;|&nbsp;<span class="license">GNUv3.0</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

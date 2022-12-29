@@ -1,0 +1,21 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>R - Category - BJK</title>
+        <link>https://airbj31.github.io/categories/r/</link>
+        <description>R - Category - BJK</description>
+        <generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Tue, 27 Dec 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://airbj31.github.io/categories/r/" rel="self" type="application/rss+xml" /><item>
+    <title>Hello World</title>
+    <link>https://airbj31.github.io/2022/12/27/hello-world/</link>
+    <pubDate>Tue, 27 Dec 2022 00:00:00 &#43;0000</pubDate>
+    <author>BJK</author>
+    <guid>https://airbj31.github.io/2022/12/27/hello-world/</guid>
+    <description><![CDATA[
+
+<div id="TOC">
+
+</div>
+
+]]></description>
+</item>
+</channel>
+</rss>

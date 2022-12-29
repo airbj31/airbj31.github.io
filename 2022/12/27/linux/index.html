@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>FILE privilege - BJK</title><meta name="Description" content="Genomic Data Scientist"><meta property="og:title" content="FILE privilege" />
+<meta property="og:description" content="File permission and Ownership - Why is file permission required? In general, many people can connect to one Linux server and work on their own tasks or work together. If all user shares the same files and directories, it&rsquo;s a potential risk of data loss or changes due to others&#39; needs. Although the user may not have intended it, it can seriously interfere with their work by fixing or erasing files that are important to others, and in severe cases, it can move the location of some of the files needed by the system, preventing the system from locating them, causing the system to stop completely." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://airbj31.github.io/2022/12/27/linux/" /><meta property="og:image" content="https://airbj31.github.io/104"/><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-12-27T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-12-27T01:18:19+09:00" /><meta property="og:site_name" content="BJK\&#39;s Log" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://airbj31.github.io/104"/>
+
+<meta name="twitter:title" content="FILE privilege"/>
+<meta name="twitter:description" content="File permission and Ownership - Why is file permission required? In general, many people can connect to one Linux server and work on their own tasks or work together. If all user shares the same files and directories, it&rsquo;s a potential risk of data loss or changes due to others&#39; needs. Although the user may not have intended it, it can seriously interfere with their work by fixing or erasing files that are important to others, and in severe cases, it can move the location of some of the files needed by the system, preventing the system from locating them, causing the system to stop completely."/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://airbj31.github.io/2022/12/27/linux/" /><link rel="prev" href="https://airbj31.github.io/2022/12/27/hello-world/" /><link rel="next" href="https://airbj31.github.io/2022/12/27/an-example-r-markdown/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "FILE privilege",
+        "inLanguage": "ko-KR",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/airbj31.github.io\/2022\/12\/27\/linux\/"
+        },"genre": "post","keywords": "linux","wordcount":  411 ,
+        "url": "https:\/\/airbj31.github.io\/2022\/12\/27\/linux\/","datePublished": "2022-12-27T00:00:00+00:00","dateModified": "2022-12-27T01:18:19+09:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "R package build"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="BJK"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/logo.gif"
+        data-srcset="/images/logo.gif, /images/logo.gif 1.5x, /images/logo.gif 2x"
+        data-sizes="auto"
+        alt="/images/logo.gif"
+        title="/images/logo.gif" />Kim, BJ PhD</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/"> Home </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/research/"> Research </a><a class="menu-item" href="/career/"> Career </a><a class="menu-item" href="/works/"> Works </a><a class="menu-item" href="/glab/"> G-Lab </a><a class="menu-item" href="/post/"> Archive </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="BJK"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/logo.gif"
+        data-srcset="/images/logo.gif, /images/logo.gif 1.5x, /images/logo.gif 2x"
+        data-sizes="auto"
+        alt="/images/logo.gif"
+        title="/images/logo.gif" />Kim, BJ PhD</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/" title="">Home</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/research/" title="">Research</a><a class="menu-item" href="/career/" title="">Career</a><a class="menu-item" href="/works/" title="">Works</a><a class="menu-item" href="/glab/" title="">G-Lab</a><a class="menu-item" href="/post/" title="">Archive</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster">FILE privilege</h1><div class="content" id="content"><h2 id="file-permission-and-ownership---why-is-file-permission-required">File permission and Ownership - Why is file permission required?</h2>
+<p>In general, many people can connect to one Linux server and work on their own tasks or work together. If all user shares the same files and directories, it&rsquo;s a potential risk of data loss or changes due to others' needs. Although the user may not have intended it, it can seriously interfere with their work by fixing or erasing files that are important to others, and in severe cases, it can move the location of some of the files needed by the system, preventing the system from locating them, causing the system to stop completely. Thus, our system needs a barrier system that blocks others from disturbing others' jobs. This is why file permission is required</p>
+<h2 id="linux-file-permission">Linux File Permission</h2>
+<p>To check File permission, the easiest way is to list files within the current directory.</p>
+<pre tabindex="0"><code class="language-{bash}" data-lang="{bash}">ls -lh
+</code></pre><pre><code>-rw-r--r--   12   BJKIM   KIMGROUP     12.0K   Nov 29  10:10 my_File
+|[-][-][-]- [-]   [----]  [-------]    [----]  [----]  [---] [------]
+| |  |  | |  |    |       |            |       |       |     |
+| |  |  | |  |    |       |            |       |       |     +-&gt;  8. File Name
+| |  |  | |  |    |       |            |       |       +-------&gt;  7. time
+| |  |  | |  |    |       |            |       +---------------&gt;  7. date
+| |  |  | |  |    |       |            +-----------------------&gt;  6. File Size
+| |  |  | |  |    |       +------------------------------------&gt;  5. Group
+| |  |  | |  |    +--------------------------------------------&gt;  5. Owner
+| |  |  | |  +-------------------------------------------------&gt;  4. # links
+| |  |  | +----------------------------------------------------&gt;  3. Alternate Access Method
+| |  |  +------------------------------------------------------&gt;  2. Others Permissions
+| |  +---------------------------------------------------------&gt;  2. Group Permissions
+| +------------------------------------------------------------&gt;  2. Owner Permissions
++--------------------------------------------------------------&gt;  1. File Type
+</code></pre>
+<p>The output of each line of ls -l gave us information about each file within your current directory. The first column consisting of 10 letters, -rw-r&ndash;r&ndash; is file type and file permission and followed by Alternative access method, #link, owner user id, group, file size, date, time, and file name.</p>
+<h3 id="1-file-type">1. File type</h3>
+<p>The file type is literally the type that indicates that a given file is a directory, regular file, or link.</p>
+<ul>
+<li><code>d</code>: directory</li>
+<li><code>-</code>: regular file</li>
+<li><code>l</code>: Symbolic link</li>
+</ul>
+<h3 id="2-owergroupothers-permission">2. Ower/Group/Others permission.</h3>
+<ul>
+<li><code>r</code>: Read permission</li>
+<li><code>w</code>: Write permission</li>
+<li><code>x</code>: Execute permission</li>
+</ul>
+<h3 id="3-alternative-method">3. Alternative Method</h3>
+<h3 id="4--oflinks">4. # oflinks</h3>
+<h3 id="5-owners-and-groups">5. Owners and Groups</h3>
+<h3 id="6-file-size">6. File Size</h3>
+<h3 id="7-date--time">7. Date &amp; Time</h3>
+<h3 id="8-file-name">8. file name</h3>
+<h2 id="commands">commands</h2>
+<p>there are two commands to modify file permissions.</p>
+<ul>
+<li>
+<p><code>chmod</code></p>
+</li>
+<li>
+<p><code>chown</code></p>
+</li>
+</ul>
+</div><div id="comments"></div></div></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">created by Blogdown, hugo framework with loveIt theme,and github pages</div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span>&nbsp;|&nbsp;<span class="license">GNUv3.0</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

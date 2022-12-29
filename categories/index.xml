@@ -1,0 +1,23 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Categories - Category - BJK</title>
+        <link>https://airbj31.github.io/categories/</link>
+        <description>Categories - Category - BJK</description>
+        <generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Tue, 27 Dec 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://airbj31.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>linux</title>
+    <link>https://airbj31.github.io/categories/linux/</link>
+    <pubDate>Tue, 27 Dec 2022 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://airbj31.github.io/categories/linux/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>R</title>
+    <link>https://airbj31.github.io/categories/r/</link>
+    <pubDate>Tue, 27 Dec 2022 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://airbj31.github.io/categories/r/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
+</rss>

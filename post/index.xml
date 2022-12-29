@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on BJK</title>
+    <link>https://airbj31.github.io/post/</link>
+    <description>Recent content in Posts on BJK</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <lastBuildDate>Wed, 28 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://airbj31.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Honey Bee Crisis</title>
+      <link>https://airbj31.github.io/2022/12/28/honey-bee-crisis/</link>
+      <pubDate>Wed, 28 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://airbj31.github.io/2022/12/28/honey-bee-crisis/</guid>
+      <description>Honey bee and their population crisis.  Honey bees are not only an important honey producer but also one of the most important pollinators which affect worldwide crop production.
+ They have been in danger since the late 1990s in various places in Europe and the U.S. The crisis was also reported in Jan 2022 in South Korea. &amp;gt; 99% of bees left their colony, the empty colony is left alone.</description>
+    </item>
+    
+    <item>
+      <title>An Example R Markdown</title>
+      <link>https://airbj31.github.io/2022/12/27/an-example-r-markdown/</link>
+      <pubDate>Tue, 27 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://airbj31.github.io/2022/12/27/an-example-r-markdown/</guid>
+      <description>## ## Attaching package: &amp;#39;dplyr&amp;#39; ## The following objects are masked from &amp;#39;package:stats&amp;#39;: ## ## filter, lag ## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## intersect, setdiff, setequal, union Introduction This is an R Markdown document. By studying the document source code file, compiling it, and observing the result side-by-side with the source, you’ll learn a lot about the R Markdown and LaTeX mathematical typesetting language, and you’ll be able to produce nice-looking documents with R input and output neatly formatted.</description>
+    </item>
+    
+    <item>
+      <title>FILE privilege</title>
+      <link>https://airbj31.github.io/2022/12/27/linux/</link>
+      <pubDate>Tue, 27 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://airbj31.github.io/2022/12/27/linux/</guid>
+      <description>File permission and Ownership - Why is file permission required? In general, many people can connect to one Linux server and work on their own tasks or work together. If all user shares the same files and directories, it&amp;rsquo;s a potential risk of data loss or changes due to others&#39; needs. Although the user may not have intended it, it can seriously interfere with their work by fixing or erasing files that are important to others, and in severe cases, it can move the location of some of the files needed by the system, preventing the system from locating them, causing the system to stop completely.</description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>https://airbj31.github.io/2022/12/27/hello-world/</link>
+      <pubDate>Tue, 27 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://airbj31.github.io/2022/12/27/hello-world/</guid>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+
+&lt;/div&gt;
+
+</description>
+    </item>
+    
+  </channel>
+</rss>

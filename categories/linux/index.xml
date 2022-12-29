@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>linux - Category - BJK</title>
+        <link>https://airbj31.github.io/categories/linux/</link>
+        <description>linux - Category - BJK</description>
+        <generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Tue, 27 Dec 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://airbj31.github.io/categories/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>FILE privilege</title>
+    <link>https://airbj31.github.io/2022/12/27/linux/</link>
+    <pubDate>Tue, 27 Dec 2022 00:00:00 &#43;0000</pubDate>
+    <author>R package build</author>
+    <guid>https://airbj31.github.io/2022/12/27/linux/</guid>
+    <description><![CDATA[File permission and Ownership - Why is file permission required? In general, many people can connect to one Linux server and work on their own tasks or work together. If all user shares the same files and directories, it&rsquo;s a potential risk of data loss or changes due to others' needs. Although the user may not have intended it, it can seriously interfere with their work by fixing or erasing files that are important to others, and in severe cases, it can move the location of some of the files needed by the system, preventing the system from locating them, causing the system to stop completely.]]></description>
+</item>
+</channel>
+</rss>
